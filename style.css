@@ -1,0 +1,38 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: rgb(201, 201, 201) !important;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+header{
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+}
+.nav{
+    border: 4px solid black;
+    border-radius: 20px;
+}
+a {
+    color: black !important;
+}
+a:hover{
+    font-size: 17px !important;
+    font-weight: 600;
+}
+#plane{
+    border-radius: 10px;
+    height:40px;
+    width: 40px;
+}
+
+img{
+    margin: 10px;
+}
