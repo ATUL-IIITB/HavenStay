@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Listing</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1><b>Edit Your Listing</b></h1>
+
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" class="addNewForm">
+
+        Name :
+        <input
+            type="text"
+            name="name"
+            value="<%= listing.name %>"
+            required>
+        <hr>
+
+        Image URL :
+        <input
+            type="text"
+            name="Image"
+            value="<%= listing.Image %>"
+            required>
+        <hr>
+
+        Description :
+        <textarea
+            name="description"
+            rows="5"
+            cols="50"
+            required><%= listing.description %></textarea>
+        <hr>
+
+        Pricing :
+        <input
+            type="number"
+            name="price"
+            value="<%= listing.price %>"
+            required>
+        <hr>
+
+        Location :
+        <input
+            type="text"
+            name="location"
+            value="<%= listing.location %>"
+            required>
+        <hr>
+
+        <button type="submit" class="btn btn-success">
+            Update Listing
+        </button>
+
+        <a href="/listings/<%= listing._id %>" class="btn btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+
+</body>
+</html>

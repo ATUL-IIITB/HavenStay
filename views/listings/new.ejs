@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WonderLust</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><b>Fill the form to Register your Hotel</b></h1>
+    </header>
+
+    <form action="/listings" method="POST">
+        <div class="addDetails">
+            <ul id="addNewForm">
+                <li class="addNewForm"><label for="name">Name :</label>
+                    <input type="text" name="name" placeholder="Enter the Name of Villa"><br>
+                </li>
+
+                <li class="addNewForm"><label for="Image">Image URL:</label>
+                    <input type="text" name="Image" placeholder="Enter Image URL"><br>
+                </li>
+
+
+                <li class="addNewForm"><label for="description">Description :</label>
+                    <textarea name="description" placeholder="Enter description of the villa" rows="5">
+                    </textarea><br>
+                </li class="addNewForm">
+
+
+                <li class="addNewForm"><label for="price">Price :</label>
+                    <input type="number" name="price" placeholder="Enter Price"><br>
+                </li>
+
+
+                <li class="addNewForm"><label for="location">Location :</label>
+                    <input type="text" name="location" placeholder="Enter Location"><br>
+                </li>
+
+
+
+                <button type="submit">Register Hotel</button><br>
+
+            </ul>
+        </div>
+    </form>
+</body>
+
+</html>

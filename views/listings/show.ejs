@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WonderLust</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1><b>
+            <%= listing.name %>
+        </b></h1>
+
+    <div class="bigImage">
+        <img src="<%= listing.Image %>" alt="<%= listing.name %>">
+    </div>
+
+    <ul id="details">
+        <li><b>Location :</b>
+            <%= listing.location %>
+        </li>
+
+        <li><b>Description :</b>
+            <%= listing.description %>
+        </li>
+
+        <li><b>Pricing : ₹</b>
+            <%= listing.price.toLocaleString("en-IN") %>
+        </li>
+    </ul>
+
+    <div class="buttons">
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-warning">
+            Edit
+        </a>
+        <form action="/listings/<%=listing._id%>?_method=Delete" method="post">
+            <button class="btn btn-danger">
+                Delete
+            </button>
+        </form>
+
+
+        <a href="/listings" class="btn btn-secondary">
+            Back
+        </a>
+    </div>
+
+
+</body>
+
+</html>
