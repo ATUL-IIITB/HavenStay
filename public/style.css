@@ -11,7 +11,7 @@ a {
     color: inherit !important;
 }
 
-h1 {
+h3 {
     text-align: center;
     margin: 20px 0;
     color: #2c2c2c;
@@ -26,12 +26,12 @@ header {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-header h1 {
+header h3 {
     color: white;
     margin: 10px 0;
 }
 
-header h2 {
+header h4 {
     font-size: 1.4rem;
     font-weight: 400;
 }
@@ -97,9 +97,6 @@ header h2 {
     color: #666;
 }
 
-/* =========================
-   SHOW PAGE
-========================= */
 
 .bigImage {
     display: flex;
@@ -141,9 +138,6 @@ header h2 {
     margin-bottom: 30px;
 }
 
-/* =========================
-   NEW + EDIT FORMS
-========================= */
 
 .addDetails,
 .addNewForm {
