@@ -23,7 +23,7 @@ header {
     text-align: center;
     padding: 20px;
     width: 100%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header h3 {
@@ -48,13 +48,14 @@ header h4 {
     width: 90%;
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     color: #2c2c2c !important;
 }
 
 .container-fluid {
     border-radius: 18px;
 }
+
 .alllists {
     display: flex;
     flex-wrap: wrap;
@@ -67,14 +68,14 @@ header h4 {
     border: none !important;
     border-radius: 20px !important;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
     background-color: white;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .card-img-top {
@@ -108,7 +109,7 @@ header h4 {
     width: 650px;
     max-width: 90%;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 #details {
@@ -118,7 +119,7 @@ header h4 {
     padding: 25px;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 #details li {
@@ -138,16 +139,14 @@ header h4 {
     margin-bottom: 30px;
 }
 
-
-.addDetails,
-.addNewForm {
-    width: 550px;
-    max-width: 90%;
+.addDetails {
+    width: 600px;
+    max-width: 95%;
     margin: 30px auto;
     background: white;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 #addNewForm {
@@ -155,12 +154,10 @@ header h4 {
     padding: 0;
 }
 
-.addNewForm li,
 #addNewForm li {
     margin-bottom: 20px;
 }
 
-.addNewForm label,
 #addNewForm label {
     display: block;
     font-weight: bold;
@@ -168,25 +165,13 @@ header h4 {
     color: #333;
 }
 
-.addNewForm input,
-.addNewForm textarea,
-#addNewForm input,
-#addNewForm textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #bbb;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: 0.2s;
+.form-control {
+    border-radius: 10px !important;
 }
 
-.addNewForm input:focus,
-.addNewForm textarea:focus,
-#addNewForm input:focus,
-#addNewForm textarea:focus {
-    border-color: brown;
-    outline: none;
-    box-shadow: 0 0 8px rgba(165,42,42,0.2);
+.form-control:focus {
+    border-color: brown !important;
+    box-shadow: 0 0 8px rgba(165, 42, 42, 0.25) !important;
 }
 
 textarea {
@@ -195,11 +180,7 @@ textarea {
 }
 
 button {
-    padding: 12px 20px;
     border-radius: 10px !important;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
     transition: 0.2s;
 }
 
@@ -207,7 +188,24 @@ button:hover {
     transform: scale(1.03);
 }
 
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+    border-color: #198754 !important;
+}
+
+.invalid-feedback {
+    font-size: 0.9rem;
+}
+
+
 @media (max-width: 768px) {
+
     .bigImage img {
         width: 95%;
     }
@@ -229,5 +227,9 @@ button:hover {
     .card {
         width: 100% !important;
         max-width: 350px;
+    }
+
+    .addDetails {
+        width: 95%;
     }
 }

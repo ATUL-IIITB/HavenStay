@@ -1,41 +1,95 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<body>
-    <header>
-        <h1><b>Fill the form to Register your Hotel</b></h1>
-    </header>
 
-    <form action="/listings" method="POST">
-        <div class="addDetails">
-            <ul id="addNewForm">
-                <li class="addNewForm"><label for="name">Name :</label>
-                    <input type="text" name="name" placeholder="Enter the Name of Villa"><br>
-                </li>
+<header>
+    <h1><b>Fill the form to Register your Hotel</b></h1>
+</header>
 
-                <li class="addNewForm"><label for="Image">Image URL:</label>
-                    <input type="text" name="Image" placeholder="Enter Image URL"><br>
-                </li>
+<form action="/listings" method="POST" class="needs-validation" novalidate>
 
+    <div class="addDetails">
+        <ul id="addNewForm">
 
-                <li class="addNewForm"><label for="description">Description :</label>
-                    <textarea name="description" placeholder="Enter description of the villa" rows="5">
-                    </textarea><br>
-                </li class="addNewForm">
+            <li class="addNewForm">
+                <label for="name">Name :</label>
 
+                <input
+                    type="text"
+                    class="form-control"
+                    name="listing[name]"
+                    placeholder="Enter the Name of Villa"
+                    required>
 
-                <li class="addNewForm"><label for="price">Price :</label>
-                    <input type="number" name="price" placeholder="Enter Price"><br>
-                </li>
+                <div class="invalid-feedback">
+                    Please enter the hotel name.
+                </div>
+            </li>
 
+            <li class="addNewForm">
+                <label for="Image">Image URL :</label>
 
-                <li class="addNewForm"><label for="location">Location :</label>
-                    <input type="text" name="location" placeholder="Enter Location"><br>
-                </li>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="listing[Image]"
+                    placeholder="Enter Image URL">
 
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </li>
 
+            <li class="addNewForm">
+                <label for="description">Description :</label>
 
-                <button type="submit">Register Hotel</button><br>
+                <textarea
+                    class="form-control"
+                    name="listing[description]"
+                    placeholder="Enter description of the villa"
+                    rows="5"
+                    required></textarea>
 
-            </ul>
-        </div>
-    </form>
-</body>
+                <div class="invalid-feedback">
+                    Please provide a description.
+                </div>
+            </li>
+
+            <li class="addNewForm">
+                <label for="price">Price :</label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    name="listing[price]"
+                    placeholder="Enter Price"
+                    required>
+
+                <div class="invalid-feedback">
+                    Please enter a valid price.
+                </div>
+            </li>
+
+            <li class="addNewForm">
+                <label for="location">Location :</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    name="listing[location]"
+                    placeholder="Enter Location"
+                    required>
+
+                <div class="invalid-feedback">
+                    Please enter the location.
+                </div>
+            </li>
+
+            <li class="addNewForm text-center">
+                <button type="submit" class="btn btn-primary">
+                    Register Hotel
+                </button>
+            </li>
+
+        </ul>
+    </div>
+
+</form>
