@@ -62,12 +62,16 @@
             <button class="btn btn-outline-dark mb-3 mt-3">submit</button>
 
             <hr>
-
             <br>
-            <h4>ALL Listings</h4>
-            <% for(review of listing.reviews){%>
-                <li><%= review.comment %> , <%= review.rating %> star</li>
-            <%}%>
-            
+
         </form>
+        <h4>ALL Reviews</h4>
+            <% for(review of listing.reviews){%>
+                <li><%= review.comment %> , <b> <%= review.rating %> star </b>  
+                     <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"  method="POST">
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                     </form>
+                </li>
+                
+             <% }%>
     </div>
