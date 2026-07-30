@@ -23,6 +23,9 @@ router.get("/", wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index", { allListings });
 }));
+router.get("/new", (req, res) => {
+    res.render("listings/new");
+});
 
 router.get("/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
@@ -31,9 +34,6 @@ router.get("/:id", wrapAsync(async (req, res) => {
     res.render("listings/show", { listing });
 }));
 
-router.get("/new", (req, res) => {
-    res.render("listings/new");
-});
 
 router.get("/:id/edit", wrapAsync(async (req, res) => {
     let { id } = req.params;
@@ -45,6 +45,7 @@ router.get("/:id/edit", wrapAsync(async (req, res) => {
 router.post("/", validateListing, wrapAsync(async (req, res) => {
     const newListing = new Listing(req.body.listing);
     await newListing.save();
+    req.flash("success","New Listing Created !!!");
     res.redirect("/listings");
 }));
 
@@ -53,12 +54,14 @@ router.post("/", validateListing, wrapAsync(async (req, res) => {
 router.put("/:id", validateListing, wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, req.body.listing);
+    req.flash("success","Listing updated !!!");
     res.redirect(`/listings/${id}`);
 }));
 
 router.delete("/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
+    req.flash("success"," Listing Deleted !!!");
     res.redirect("/listings");
 }));
 
