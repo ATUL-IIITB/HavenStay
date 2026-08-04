@@ -15,11 +15,20 @@ main()
 async function main(){
     await mongoose.connect(MONGO_URL);
 }
-const initDB = async ()=>{
+// init/index.js
+const initDB = async () => {
     await listing.deleteMany({});
-    initdata.data = initdata.data.map((obj)=>({
-      ...obj,owner : "6a71e1e8b626b7688f47e58e",
+
+    const demoUser = await User.findOne({ username: "demo" });
+    if (!demoUser) {
+        throw new Error("No 'demo' user found — create one via /signup first");
+    }
+
+    initdata.data = initdata.data.map((obj) => ({
+        ...obj,
+        owner: demoUser._id,
     }));
+
     await listing.insertMany(initdata.data);
     console.log("Data Initialized");
 };

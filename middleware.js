@@ -25,7 +25,7 @@ module.exports.saveRedirectUrl = async (req, res, next) => {
 module.exports.isOwner = async (req, res, next) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
-    if (!listing.owner.equals(res.locals.currUser._id)) {
+    if (!listing.owner || !listing.owner.equals(res.locals.currUser._id)) {
         req.flash("error", "You are not the Owner of this post");
         return res.redirect(`/listings/${id}`);
     }
@@ -57,9 +57,7 @@ module.exports.validateReview = (req, res, next) => {
 };
 
 module.exports.isReviewAuthor = async (req, res, next) => {
-
     const { id, reviewId } = req.params;
-
     const review = await Review.findById(reviewId);
 
     if (!review) {
@@ -67,7 +65,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
         return res.redirect(`/listings/${id}`);
     }
 
-    if (!review.author.equals(req.user._id)) {
+    if (!review.author || !review.author.equals(req.user._id)) {
         req.flash("error", "You are not authorized.");
         return res.redirect(`/listings/${id}`);
     }
