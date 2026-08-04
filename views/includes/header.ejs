@@ -1,18 +1,83 @@
+<header class="sticky-top">
 
-    <header class="sticky-top">
-        <h4> <img src="/logo.png" alt="logo" id="plane"> Book Your Holiday Spot TODAY!! </h4>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/listings">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/listings/new">Add Hotel</a>
-                        </li>
-                </div>
+    <h4>
+        <img src="/logo.png" alt="logo" id="plane">
+        Book Your Holiday Spot TODAY!!
+    </h4>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+        <div class="container-fluid">
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- Left Menu -->
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/listings">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/listings/new">
+                            Add Hotel
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Right Menu -->
+
+                <ul class="navbar-nav mb-2 mb-lg-0">
+
+                    <% if(!currUser){ %>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            Login
+                        </a>
+                    </li>
+
+                    <% } %>
+
+                    <% if(currUser){ %>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            Logout
+                        </a>
+                    </li>
+
+                    <% } %>
+
+                </ul>
+
             </div>
-        </nav>
-    </header>
-    
+
+        </div>
+
+    </nav>
+
+</header>

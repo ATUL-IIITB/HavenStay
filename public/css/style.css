@@ -17,6 +17,10 @@ h3 {
     color: #2c2c2c;
 }
 
+/* ===========================
+   HEADER
+=========================== */
+
 header {
     background: linear-gradient(135deg, brown, #8b0000);
     color: white;
@@ -26,22 +30,25 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-header h3 {
-    color: white;
-    margin: 10px 0;
-}
-
 header h4 {
+    margin: 0;
     font-size: 1.4rem;
     font-weight: 400;
 }
+
+/* Logo */
 
 #plane {
     width: 60px;
     height: 60px;
     border-radius: 12px;
     vertical-align: middle;
+    margin-right: 8px;
 }
+
+/* ===========================
+   NAVBAR
+=========================== */
 
 .navbar {
     margin: 20px auto;
@@ -50,6 +57,132 @@ header h4 {
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     color: #2c2c2c !important;
+}
+
+.container-fluid {
+    border-radius: 18px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 18px !important;
+    transition: .3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: brown !important;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width:992px) {
+
+    header {
+        padding: 15px;
+    }
+
+    header h4 {
+        font-size: 1.2rem;
+    }
+
+    #plane {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    .navbar-collapse {
+        padding: 15px 0;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px) {
+
+    header h4 {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    #plane {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar {
+        width: 96%;
+        margin: 12px auto;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .navbar-nav {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px !important;
+    }
+
+}
+
+/* ===========================
+   SMALL PHONES
+=========================== */
+
+@media (max-width:480px) {
+
+    header { 
+        padding: 10px;
+    }
+
+    header h4 {
+        font-size: .9rem;
+    }
+
+    #plane {
+        width: 32px;
+        height: 32px;
+    }
+
+    .navbar {
+        width: 98%;
+        border-radius: 12px;
+    }
+
 }
 
 .container-fluid {
@@ -232,4 +365,44 @@ button:hover {
     .addDetails {
         width: 95%;
     }
+}
+/* ===========================
+   Reviews
+=========================== */
+
+.review-container{
+    width:80%;
+    margin:30px auto;
+}
+
+.review-card{
+    border:none !important;
+    border-radius:18px !important;
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.review-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.review-card .card-body{
+    text-align:left;
+}
+
+.review-card .badge{
+    font-size:.9rem;
+}
+
+.review-card form{
+    margin-top:15px;
+}
+
+@media(max-width:768px){
+
+    .review-container{
+        width:95%;
+    }
+
 }

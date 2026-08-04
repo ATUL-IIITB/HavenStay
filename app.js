@@ -42,10 +42,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
-
-    console.log("Success:", res.locals.success);
-    console.log("Error:", res.locals.error);
-
+    res.locals.currUser = req.user;
     next();
 });
 app.engine("ejs", ejsMate);

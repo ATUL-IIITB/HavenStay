@@ -1,77 +1,195 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
-    <h1>
-        <b>
-            <%= listing.name %>
-        </b>
-    </h1>
+<h1 class="text-center mt-3">
+    <b><%= listing.name %></b>
+</h1>
 
-    <div class="bigImage">
-        <img src="<%= listing.Image %>" alt="<%= listing.name %>">
-    </div>
+<div class="bigImage">
+    <img src="<%= listing.Image %>" alt="<%= listing.name %>">
+</div>
 
-    <ul id="details">
-        <li><b>Location :</b>
-            <%= listing.location %>
-        </li>
+<ul id="details">
 
-        <li><b>Description :</b>
-            <%= listing.description %>
-        </li>
+    <li>
+        <b>Owner :</b>
+        <i><%= listing.owner.username %></i>
+    </li>
 
-        <li><b>Pricing : ₹</b>
-            <%= listing.price.toLocaleString("en-IN") %>
-        </li>
-    </ul>
+    <li>
+        <b>Location :</b>
+        <%= listing.location %>
+    </li>
 
-    <div class="buttons">
-        <a href="/listings/<%= listing._id %>/edit" class="btn btn-warning">
+    <li>
+        <b>Description :</b>
+        <%= listing.description %>
+    </li>
+
+    <li>
+        <b>Pricing : ₹</b>
+        <%= listing.price.toLocaleString("en-IN") %>
+    </li>
+
+</ul>
+
+<div class="buttons">
+
+    <% if(currUser && currUser._id.equals(listing.owner._id)){ %>
+
+        <a href="/listings/<%= listing._id %>/edit"
+            class="btn btn-warning">
             Edit
         </a>
-        <form action="/listings/<%=listing._id%>?_method=Delete" method="post">
+
+        <form
+            action="/listings/<%= listing._id %>?_method=DELETE"
+            method="POST">
+
             <button class="btn btn-danger">
                 Delete
             </button>
+
         </form>
 
+    <% } %>
 
-        <a href="/listings" class="btn btn-secondary">
-            Back
-        </a>
+    <a href="/listings"
+        class="btn btn-secondary">
+        Back
+    </a>
 
-    </div>
-    <div class="review">
-        <h4>
-            Drop a Review
-        </h4>
-        <form action="/listings/<%= listing.id %>/reviews " method="post" class="form-label needs-validation"
-            novalidate>
-            <div class="rating mb-3 mt-3">
-                <label for="rating">Rating</label>
-                <input type="range" id="rating" min="1" max="5" name="review[rating]">
+</div>
+
+<hr>
+
+<!-- ===========================
+        Review Form
+============================ -->
+
+<% if(currUser){ %>
+
+<div class="review addDetails">
+
+    <h4 class="mb-3">
+        Drop a Review
+    </h4>
+
+    <form
+        action="/listings/<%= listing._id %>/reviews"
+        method="POST"
+        class="needs-validation"
+        novalidate>
+
+        <div class="mb-3">
+
+            <label for="rating" class="form-label">
+                Rating
+            </label>
+
+            <input
+                type="range"
+                class="form-range"
+                id="rating"
+                min="1"
+                max="5"
+                name="review[rating]"
+                value="3">
+
+        </div>
+
+        <div class="mb-3">
+
+            <label for="comment" class="form-label">
+                Comment
+            </label>
+
+            <textarea
+                id="comment"
+                class="form-control"
+                name="review[comment]"
+                rows="5"
+                required></textarea>
+
+            <div class="invalid-feedback">
+                Please enter your review.
             </div>
-            <div class="comment mb-3 mt-3">
-                <label for="comment">comment</label>
-                <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control"
-                    required></textarea>
-                <div class="invalid-feedback">
-                    please submit a valid response
+
+        </div>
+
+        <button class="btn btn-outline-dark">
+            Submit Review
+        </button>
+
+    </form>
+
+</div>
+
+<% } %>
+
+<hr>
+
+<!-- ===========================
+        All Reviews
+============================ -->
+
+<h3 class="text-center mt-4">
+    All Reviews
+</h3>
+
+<div class="review-container">
+
+    <% if(listing.reviews.length === 0){ %>
+
+        <div class="alert alert-secondary text-center">
+            No reviews yet.
+        </div>
+
+    <% } %>
+
+    <% for(let review of listing.reviews){ %>
+
+        <div class="card review-card mb-3">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <h6 class="card-subtitle text-muted">
+                        By <strong><%= review.author.username %></strong>
+                    </h6>
+
+                    <span class="badge bg-warning text-dark">
+                        ⭐ <%= review.rating %>/5
+                    </span>
+
                 </div>
+
+                <hr>
+
+                <p class="card-text">
+
+                    <%= review.comment %>
+
+                </p>
+
+                <% if(currUser && review.author._id.equals(currUser._id)){ %>
+
+                    <form
+                        action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                        method="POST">
+
+                        <button class="btn btn-danger btn-sm">
+                            Delete Review
+                        </button>
+
+                    </form>
+
+                <% } %>
+
             </div>
 
-            <button class="btn btn-outline-dark mb-3 mt-3">submit</button>
+        </div>
 
-            <hr>
-            <br>
+    <% } %>
 
-        </form>
-        <h4>ALL Reviews</h4>
-            <% for(review of listing.reviews){%>
-                <li><%= review.comment %> , <b> <%= review.rating %> star </b>  
-                     <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"  method="POST">
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                     </form>
-                </li>
-                
-             <% }%>
-    </div>
+</div>
