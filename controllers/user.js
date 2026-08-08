@@ -1,4 +1,4 @@
-const user = require("../models/user.js");
+const User = require("../models/user.js");
 
 module.exports.renderSignupForm = async (req, res) => {
     res.render("./users/signup.ejs");
@@ -35,7 +35,7 @@ module.exports.loginUser = async (req, res) => {
     let redirectUrl = res.locals.redirectUrl || "/listings"
     res.redirect(redirectUrl);
 };
-module.exports.logOutUser = async (req, res, next) => {
+module.exports.logoutUser = async (req, res, next) => {
     req.logout((err) => {
         if (err) {
             return next(err);

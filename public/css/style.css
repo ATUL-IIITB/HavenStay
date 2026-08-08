@@ -1,408 +1,802 @@
+/* =========================================================
+   WONDERLUST — Design System
+   Warm editorial travel theme (boutique-hotel feel)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Palette */
+  --wl-ivory: #FBF7F0;
+  --wl-ink: #1F2A24;
+  --wl-wine: #7A2E2E;
+  --wl-wine-dark: #5E2222;
+  --wl-brass: #B8935A;
+  --wl-parchment: #E8DFD0;
+  --wl-sage: #4A5A4E;
+
+  /* Type */
+  --wl-font-display: 'Fraunces', Georgia, serif;
+  --wl-font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Rhythm */
+  --wl-radius: 6px;
+  --wl-radius-lg: 14px;
+  --wl-shadow: 0 4px 20px rgba(31, 42, 36, 0.08);
+  --wl-shadow-lg: 0 12px 40px rgba(31, 42, 36, 0.14);
+  --wl-border: 1px solid var(--wl-parchment);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ece9e6, #ffffff);
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
+  background-color: var(--wl-ivory);
+  color: var(--wl-ink);
+  font-family: var(--wl-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
+/* -------------------- Typography -------------------- */
+
+h1, h2, h3,
+.wl-display {
+  font-family: var(--wl-font-display);
+  font-weight: 600;
+  color: var(--wl-ink);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.4rem; }
+
+.wl-eyebrow {
+  font-family: var(--wl-font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wl-brass);
 }
 
 a {
-    text-decoration: none !important;
-    color: inherit !important;
+  color: var(--wl-wine);
 }
 
-h3 {
-    text-align: center;
-    margin: 20px 0;
-    color: #2c2c2c;
+a:hover {
+  color: var(--wl-wine-dark);
 }
 
-/* ===========================
-   HEADER
-=========================== */
+/* -------------------- Signature: flight-path divider -------------------- */
 
-header {
-    background: linear-gradient(135deg, brown, #8b0000);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.wl-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 3rem 0;
+  color: var(--wl-brass);
+  border: none;
 }
 
-header h4 {
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: 400;
+.wl-divider::before,
+.wl-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 160px;
+  height: 0;
+  border-top: 1.5px dashed var(--wl-brass);
+  opacity: 0.6;
 }
 
-/* Logo */
-
-#plane {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    vertical-align: middle;
-    margin-right: 8px;
+.wl-divider::before {
+  margin-right: 4px;
 }
 
-/* ===========================
-   NAVBAR
-=========================== */
+.wl-divider::after {
+  margin-left: 4px;
+}
+
+/* replace default <hr> to use the motif */
+hr {
+  border: none;
+  border-top: 1.5px dashed var(--wl-parchment);
+  margin: 2.5rem 0;
+}
+
+/* -------------------- Header / Navbar -------------------- */
+
+header.sticky-top {
+  background-color: var(--wl-ivory);
+  border-bottom: var(--wl-border);
+  box-shadow: 0 2px 12px rgba(31, 42, 36, 0.04);
+}
+
+header.sticky-top h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--wl-font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--wl-wine);
+  padding: 0.9rem 1.5rem 0;
+  margin: 0;
+}
+
+header.sticky-top #plane {
+  height: 28px;
+  width: auto;
+}
 
 .navbar {
-    margin: 20px auto;
-    width: 90%;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    color: #2c2c2c !important;
-}
-
-.container-fluid {
-    border-radius: 18px;
+  background-color: var(--wl-ivory) !important;
+  padding: 0.4rem 1.5rem 0.9rem;
 }
 
 .navbar-nav .nav-link {
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 10px 18px !important;
-    transition: .3s;
+  font-family: var(--wl-font-body);
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--wl-sage);
+  padding: 0.4rem 0.9rem;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: brown !important;
+  color: var(--wl-wine);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--wl-wine);
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: -2px;
+  height: 2px;
+  background-color: var(--wl-wine);
+  border-radius: 2px;
 }
 
 .navbar-toggler {
-    border: none;
+  border-color: var(--wl-parchment);
 }
 
-.navbar-toggler:focus {
-    box-shadow: none;
+/* -------------------- Buttons -------------------- */
+
+.btn {
+  font-family: var(--wl-font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  border-radius: var(--wl-radius);
+  padding: 0.55rem 1.3rem;
+  transition: all 0.2s ease;
 }
 
-/* ===========================
-   TABLET
-=========================== */
-
-@media (max-width:992px) {
-
-    header {
-        padding: 15px;
-    }
-
-    header h4 {
-        font-size: 1.2rem;
-    }
-
-    #plane {
-        width: 50px;
-        height: 50px;
-    }
-
-    .navbar {
-        width: 95%;
-        margin: 15px auto;
-    }
-
-    .navbar-collapse {
-        padding: 15px 0;
-    }
-
-    .navbar-nav {
-        text-align: center;
-    }
-
-    .navbar-nav .nav-item {
-        margin: 5px 0;
-    }
-
+.btn-primary,
+.btn-dark {
+  background-color: var(--wl-wine);
+  border-color: var(--wl-wine);
+  color: var(--wl-ivory);
 }
 
-/* ===========================
-   MOBILE
-=========================== */
-
-@media (max-width:768px) {
-
-    header h4 {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    #plane {
-        width: 40px;
-        height: 40px;
-    }
-
-    .navbar {
-        width: 96%;
-        margin: 12px auto;
-    }
-
-    .navbar-collapse {
-        text-align: center;
-    }
-
-    .navbar-nav {
-        width: 100%;
-    }
-
-    .navbar-nav .nav-item {
-        width: 100%;
-    }
-
-    .navbar-nav .nav-link {
-        padding: 12px !important;
-    }
-
+.btn-primary:hover,
+.btn-dark:hover {
+  background-color: var(--wl-wine-dark);
+  border-color: var(--wl-wine-dark);
 }
 
-/* ===========================
-   SMALL PHONES
-=========================== */
-
-@media (max-width:480px) {
-
-    header { 
-        padding: 10px;
-    }
-
-    header h4 {
-        font-size: .9rem;
-    }
-
-    #plane {
-        width: 32px;
-        height: 32px;
-    }
-
-    .navbar {
-        width: 98%;
-        border-radius: 12px;
-    }
-
+.btn-success {
+  background-color: var(--wl-sage);
+  border-color: var(--wl-sage);
 }
 
-.container-fluid {
-    border-radius: 18px;
+.btn-success:hover {
+  background-color: #3a473e;
+  border-color: #3a473e;
 }
 
-.alllists {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 30px;
+.btn-warning {
+  background-color: var(--wl-brass);
+  border-color: var(--wl-brass);
+  color: var(--wl-ink);
 }
 
-.card {
-    border: none !important;
-    border-radius: 20px !important;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    background-color: white;
+.btn-warning:hover {
+  background-color: #a17f4a;
+  border-color: #a17f4a;
+  color: var(--wl-ivory);
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+.btn-secondary {
+  background-color: transparent;
+  border-color: var(--wl-parchment);
+  color: var(--wl-sage);
 }
 
-.card-img-top {
-    height: 220px;
-    object-fit: cover;
+.btn-secondary:hover {
+  background-color: var(--wl-parchment);
+  color: var(--wl-ink);
 }
 
-.card-body {
-    text-align: center;
-    padding: 20px;
+.btn-danger,
+.btn-outline-danger {
+  border-radius: var(--wl-radius);
 }
 
-.card-title {
-    font-weight: bold;
-    color: #333;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #666;
-}
-
-
-.bigImage {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.bigImage img {
-    width: 650px;
-    max-width: 90%;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-#details {
-    width: 60%;
-    margin: 30px auto;
-    list-style: none;
-    padding: 25px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-#details li {
-    padding: 15px;
-    font-size: 1.2rem;
-    border-bottom: 1px solid #ddd;
-}
-
-#details li:last-child {
-    border-bottom: none;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.addDetails {
-    width: 600px;
-    max-width: 95%;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-#addNewForm {
-    list-style: none;
-    padding: 0;
-}
-
-#addNewForm li {
-    margin-bottom: 20px;
-}
-
-#addNewForm label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
-}
+/* -------------------- Forms -------------------- */
 
 .form-control {
-    border-radius: 10px !important;
+  border: var(--wl-border);
+  border-radius: var(--wl-radius);
+  padding: 0.6rem 0.9rem;
+  font-family: var(--wl-font-body);
+  background-color: #fff;
 }
 
 .form-control:focus {
-    border-color: brown !important;
-    box-shadow: 0 0 8px rgba(165, 42, 42, 0.25) !important;
+  border-color: var(--wl-wine);
+  box-shadow: 0 0 0 3px rgba(122, 46, 46, 0.12);
 }
 
-textarea {
-    resize: vertical;
-    min-height: 120px;
+.form-label {
+  font-family: var(--wl-font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--wl-ink);
+  margin-bottom: 0.4rem;
 }
 
-button {
-    border-radius: 10px !important;
-    transition: 0.2s;
+/* -------------------- Cards (base, extended per-page) -------------------- */
+
+.card {
+  border: var(--wl-border);
+  border-radius: var(--wl-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--wl-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-button:hover {
-    transform: scale(1.03);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--wl-shadow-lg);
 }
 
+/* -------------------- Listings Index (Step 2) -------------------- */
 
-.was-validated .form-control:invalid,
-.form-control.is-invalid {
-    border-color: #dc3545 !important;
+.wl-listings-header {
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
 }
 
-.was-validated .form-control:valid,
-.form-control.is-valid {
-    border-color: #198754 !important;
+.wl-listings-header h1 {
+  margin-top: 0.3rem;
 }
 
-.invalid-feedback {
-    font-size: 0.9rem;
+.wl-listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  padding-bottom: 3rem;
 }
 
-
-@media (max-width: 768px) {
-
-    .bigImage img {
-        width: 95%;
-    }
-
-    #details {
-        width: 90%;
-    }
-
-    .buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .alllists {
-        gap: 20px;
-        padding: 15px;
-    }
-
-    .card {
-        width: 100% !important;
-        max-width: 350px;
-    }
-
-    .addDetails {
-        width: 95%;
-    }
-}
-/* ===========================
-   Reviews
-=========================== */
-
-.review-container{
-    width:80%;
-    margin:30px auto;
+.wl-listing-card {
+  display: block;
+  text-decoration: none;
+  color: var(--wl-ink);
+  background-color: #fff;
+  border: var(--wl-border);
+  border-radius: var(--wl-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--wl-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.review-card{
-    border:none !important;
-    border-radius:18px !important;
-    box-shadow:0 6px 15px rgba(0,0,0,.15);
-    transition:.3s;
+.wl-listing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--wl-shadow-lg);
+  color: var(--wl-ink);
 }
 
-.review-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+/* Featured card spans two columns and two rows, image-forward */
+.wl-listing-card--featured {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
-.review-card .card-body{
-    text-align:left;
+.wl-listing-card__image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
 }
 
-.review-card .badge{
-    font-size:.9rem;
+.wl-listing-card--featured .wl-listing-card__image {
+  aspect-ratio: 16 / 10;
 }
 
-.review-card form{
-    margin-top:15px;
+.wl-listing-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-@media(max-width:768px){
+.wl-listing-card:hover .wl-listing-card__image img {
+  transform: scale(1.05);
+}
 
-    .review-container{
-        width:95%;
-    }
+.wl-listing-card__price {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background-color: rgba(251, 247, 240, 0.94);
+  color: var(--wl-wine);
+  font-family: var(--wl-font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(31, 42, 36, 0.12);
+}
 
+.wl-listing-card__price small {
+  font-weight: 500;
+  color: var(--wl-sage);
+  font-size: 0.72rem;
+}
+
+.wl-listing-card__body {
+  padding: 1rem 1.2rem 1.3rem;
+}
+
+.wl-listing-card__body .wl-eyebrow {
+  margin-bottom: 0.3rem;
+}
+
+.wl-listing-card__body h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.wl-listing-card--featured .wl-listing-card__body h3 {
+  font-size: 1.5rem;
+}
+
+.wl-empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.wl-empty-state p:not(.wl-eyebrow) {
+  color: var(--wl-sage);
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 992px) {
+  .wl-listings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wl-listing-card--featured {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .wl-listings-grid {
+    grid-template-columns: 1fr;
+  }
+  .wl-listing-card--featured {
+    grid-column: span 1;
+  }
+}
+
+/* -------------------- Listing Show Page (Step 3) -------------------- */
+
+.wl-hero {
+  position: relative;
+  margin: 1.5rem 0 3.5rem;
+}
+
+.wl-hero__image {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: var(--wl-radius-lg);
+  display: block;
+}
+
+/* Ticket-stub panel overlapping the hero's bottom edge */
+.wl-ticket {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: -2.5rem;
+  background-color: #fff;
+  border-radius: var(--wl-radius-lg);
+  box-shadow: var(--wl-shadow-lg);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.wl-ticket__main {
+  flex: 1;
+  padding: 1.5rem 1.75rem;
+}
+
+.wl-ticket__main h1 {
+  margin: 0.2rem 0 0.5rem;
+  font-size: 1.9rem;
+}
+
+.wl-ticket__host {
+  color: var(--wl-sage);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.wl-ticket__stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 1.5rem 1.75rem;
+  background-color: var(--wl-ivory);
+  border-left: 1.5px dashed var(--wl-parchment);
+  position: relative;
+  min-width: 160px;
+}
+
+/* perforation notches for the "torn ticket" feel */
+.wl-ticket__stub::before,
+.wl-ticket__stub::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--wl-ivory);
+  border-radius: 50%;
+}
+
+.wl-ticket__stub::before { top: -8px; }
+.wl-ticket__stub::after { bottom: -8px; }
+
+.wl-ticket__price {
+  font-family: var(--wl-font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--wl-wine);
+}
+
+.wl-ticket__night {
+  font-size: 0.78rem;
+  color: var(--wl-sage);
+}
+
+.wl-listing-body {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.wl-description {
+  font-size: 1.02rem;
+  color: var(--wl-ink);
+  line-height: 1.75;
+}
+
+.wl-review-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.wl-review-form h3 {
+  margin-bottom: 1.75rem;
+}
+
+/* Self-contained CSS star rating (replaces the starability library, which
+   wasn't picking up styling reliably) */
+.wl-star-rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 0.2rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wl-star-rating input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.wl-star-rating label {
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--wl-parchment);
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.wl-star-rating label::before {
+  content: "★";
+}
+
+.wl-star-rating label:hover {
+  transform: scale(1.08);
+}
+
+.wl-star-rating input:checked ~ label,
+.wl-star-rating label:hover ~ label,
+.wl-star-rating label:hover {
+  color: var(--wl-brass);
+}
+
+.wl-star-rating input:focus-visible + label {
+  outline: 2px solid var(--wl-wine);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Passport-stamp rating badge */
+.wl-review-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  max-width: 760px;
+  margin: 0 auto 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: var(--wl-border);
+}
+
+.wl-review-card:last-child {
+  border-bottom: none;
+}
+
+.wl-stamp {
+  flex-shrink: 0;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2.5px solid var(--wl-brass);
+  outline: 1px solid var(--wl-brass);
+  outline-offset: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--wl-brass);
+  transform: rotate(-6deg);
+  font-family: var(--wl-font-display);
+}
+
+.wl-review-card:nth-child(even) .wl-stamp {
+  transform: rotate(5deg);
+}
+
+.wl-stamp__number {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.wl-stamp__label {
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.wl-review-card__body {
+  flex: 1;
+}
+
+.wl-review-card__text {
+  color: var(--wl-sage);
+  margin: 0.5rem 0 0;
+  line-height: 1.65;
+}
+
+@media (max-width: 767px) {
+  .wl-hero__image {
+    height: 300px;
+  }
+
+  .wl-ticket {
+    position: static;
+    flex-direction: column;
+    margin-top: -2rem;
+  }
+
+  .wl-ticket__stub {
+    border-left: none;
+    border-top: 1.5px dashed var(--wl-parchment);
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .wl-ticket__stub::before,
+  .wl-ticket__stub::after {
+    display: none;
+  }
+
+  .wl-listing-body {
+    margin-top: 1rem;
+  }
+}
+
+/* -------------------- Forms — pages (Step 4) -------------------- */
+
+.wl-form-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+}
+
+.wl-form-page--narrow {
+  max-width: 440px;
+}
+
+.wl-form-page h1 {
+  margin-top: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.wl-form-card {
+  background-color: #fff;
+  border: var(--wl-border);
+  border-radius: var(--wl-radius-lg);
+  box-shadow: var(--wl-shadow);
+  padding: 2rem 2.25rem;
+}
+
+.wl-form-footer {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--wl-sage);
+  margin: 1.5rem 0 0;
+}
+
+.wl-form-footer a {
+  font-weight: 600;
+}
+
+.wl-edit-thumb {
+  width: 100%;
+  max-width: 320px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--wl-radius);
+  border: var(--wl-border);
+  display: block;
+}
+
+/* -------------------- Flash messages + error page (Step 5) -------------------- */
+
+.wl-flash {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.25rem auto 0;
+  max-width: 640px;
+  padding: 0.85rem 1.1rem;
+}
+
+.wl-flash i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.wl-flash span {
+  flex: 1;
+}
+
+.wl-error-page {
+  max-width: 520px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 2.5rem;
+  background-color: #fff;
+  border: var(--wl-border);
+  border-radius: var(--wl-radius-lg);
+  box-shadow: var(--wl-shadow);
+}
+
+.wl-error-page h1 {
+  font-size: 1.6rem;
+  margin-top: 0.4rem;
+}
+
+/* -------------------- Final responsive polish -------------------- */
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .wl-form-card {
+    padding: 1.5rem 1.35rem;
+  }
+
+  .wl-review-card {
+    gap: 0.9rem;
+  }
+
+  .wl-stamp {
+    width: 52px;
+    height: 52px;
+  }
+
+  header.sticky-top h4 {
+    padding: 0.75rem 1.1rem 0;
+    font-size: 1.15rem;
+  }
+}
+
+/* -------------------- Footer -------------------- */
+
+footer.bg-light {
+  background-color: var(--wl-parchment) !important;
+  border-top: none !important;
+}
+
+footer .text-muted {
+  color: var(--wl-sage) !important;
+}
+
+footer a.text-muted {
+  color: var(--wl-sage) !important;
+}
+
+footer a.text-dark {
+  color: var(--wl-ink) !important;
+}
+
+footer a.text-dark:hover {
+  color: var(--wl-wine) !important;
+}
+
+/* -------------------- Alerts / flash -------------------- */
+
+.alert {
+  border: none;
+  border-radius: var(--wl-radius);
+  font-family: var(--wl-font-body);
+}
+
+.alert-success {
+  background-color: #E9F0E8;
+  color: #3a473e;
+  border-left: 3px solid var(--wl-sage);
+}
+
+.alert-danger {
+  background-color: #F5E8E5;
+  color: var(--wl-wine-dark);
+  border-left: 3px solid var(--wl-wine);
 }

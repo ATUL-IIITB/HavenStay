@@ -1,22 +1,44 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
+<div class="wl-listings-header">
+    <p class="wl-eyebrow">Curated stays</p>
+    <h1>Find your next escape</h1>
+</div>
 
-    <div class="alllists">
-        
-            <% for(listing of allListings){ %>
-                <a href="/listings/<%=listing._id%>">
-                <div class="card" style="width: 18rem;">
-                    <img src="<%= listing.Image %>" class="card-img-top" alt="<%= listing.name %>">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"><%= listing.name %></p>
-                    </div>
-                </div>
-                </a>
-                <%}%>
-        
+<div class="wl-listings-grid">
+
+    <% allListings.forEach(function(listing, i) { %>
+
+        <a href="/listings/<%= listing._id %>"
+           class="wl-listing-card <%= i === 0 ? 'wl-listing-card--featured' : '' %>">
+
+            <div class="wl-listing-card__image">
+                <% if (listing.Image && listing.Image.url) { %>
+                    <img src="<%= listing.Image.url %>" alt="<%= listing.name %>">
+                <% } else { %>
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200" alt="<%= listing.name %>">
+                <% } %>
+                <span class="wl-listing-card__price">
+                    ₹<%= listing.price.toLocaleString("en-IN") %> <small>/ night</small>
+                </span>
+            </div>
+
+            <div class="wl-listing-card__body">
+                <p class="wl-eyebrow"><%= listing.location %></p>
+                <h3><%= listing.name %></h3>
+            </div>
+
+        </a>
+
+    <% }) %>
+
+</div>
+
+<% if (allListings.length === 0) { %>
+    <div class="wl-empty-state">
+        <p class="wl-eyebrow">No stays yet</p>
+        <h2>Nothing listed here — for now</h2>
+        <p>Be the first to add a place.</p>
+        <a href="/listings/new" class="btn btn-primary">List your place</a>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
+<% } %>

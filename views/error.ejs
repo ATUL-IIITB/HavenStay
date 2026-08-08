@@ -1,5 +1,7 @@
 <% layout("./layouts/boilerplate") %>
 
-<div class="alert alert-danger" role="alert">
-    <h4 class="alert-danger"> <%= message %></h4>
+<div class="wl-error-page">
+    <p class="wl-eyebrow">Something went wrong</p>
+    <h1><%= message %></h1>
+    <a href="/listings" class="btn btn-primary mt-3">Back to stays</a>
 </div>

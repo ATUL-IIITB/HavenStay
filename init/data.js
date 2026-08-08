@@ -1,145 +1,237 @@
-
 const sampleListings = [
   {
     name: "Luxury Beach Villa",
-    Image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+    Image: {
+      url: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&auto=format&fit=crop",
+      fileName: "sample-image"
+    },
     price: 15000,
     location: "Goa",
     description: "Beautiful beachside villa with private pool and ocean view."
   },
+
   {
     name: "Mountain Cabin Retreat",
-    Image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
+    Image: {
+      url: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&auto=format&fit=crop",
+      fileName: "sample-image"
+    },
     price: 8000,
     location: "Manali",
     description: "Cozy wooden cabin surrounded by snowy mountains."
   },
+
   {
     name: "City Apartment Deluxe",
-    Image: "https://images.unsplash.com/photo-1494526585095-c41746248156",
+    Image: {
+      url: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&auto=format&fit=crop",
+      fileName: "sample-image"
+    },
     price: 6000,
     location: "Mumbai",
     description: "Modern apartment in the heart of the city with all amenities."
   },
   {
-    name: "Desert Camp Escape",
-    Image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    price: 5000,
-    location: "Jaisalmer",
-    description: "Traditional desert camp stay with camel rides and cultural nights."
+    name: "Sunset Palm Resort",
+    Image: {
+      url: "https://picsum.photos/seed/resort1/800/600",
+      fileName: "sample-image"
+    },
+    price: 12500,
+    location: "Goa",
+    description: "Luxury beachfront resort with infinity pool and sunset views."
   },
   {
-    name: "Lake View Cottage",
-    Image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-    price: 9000,
-    location: "Nainital",
-    description: "Peaceful cottage with breathtaking lake views."
+    name: "Emerald Valley Cottage",
+    Image: {
+      url: "https://picsum.photos/seed/cottage1/800/600",
+      fileName: "sample-image"
+    },
+    price: 7200,
+    location: "Munnar",
+    description: "Cozy cottage surrounded by lush green tea plantations."
   },
   {
-    name: "Forest Tree House",
-    Image: "",
-    price: 7000,
-    location: "Kerala",
-    description: "Stay in a unique treehouse surrounded by lush greenery."
+    name: "Blue Lagoon Resort",
+    Image: {
+      url: "https://picsum.photos/seed/resort2/800/600",
+      fileName: "sample-image"
+    },
+    price: 16500,
+    location: "Lakshadweep",
+    description: "Beach resort offering crystal-clear lagoons and water sports."
   },
   {
-    name: "Royal Heritage Haveli",
-    Image: "https://images.unsplash.com/photo-1464890100898-a385f744067f",
-    price: 12000,
-    location: "Jaipur",
-    description: "Experience royal living in a heritage haveli."
-  },
-  {
-    name: "Snow Peak Resort",
-    Image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+    name: "Royal Palace Hotel",
+    Image: {
+      url: "https://picsum.photos/seed/hotel1/800/600",
+      fileName: "sample-image"
+    },
     price: 14000,
-    location: "Shimla",
-    description: "Luxury resort with panoramic snowy mountain views."
+    location: "Udaipur",
+    description: "Heritage palace hotel with traditional Rajasthani hospitality."
   },
   {
-    name: "Countryside Farmhouse Stay",
-    Image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
-    price: 6500,
-    location: "Pune",
-    description: "Relaxing farmhouse ideal for family weekends."
+    name: "Golden Sands Villa",
+    Image: {
+      url: "https://picsum.photos/seed/villa1/800/600",
+      fileName: "sample-image"
+    },
+    price: 19500,
+    location: "Goa",
+    description: "Private villa with beach access and luxurious interiors."
   },
   {
-    name: "Island Paradise Resort",
-    Image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-    price: 20000,
+    name: "Green Meadows Farm Stay",
+    Image: {
+      url: "https://picsum.photos/seed/farm1/800/600",
+      fileName: "sample-image"
+    },
+    price: 5800,
+    location: "Nashik",
+    description: "Relaxing farmhouse surrounded by vineyards and greenery."
+  },
+  {
+    name: "Snow Crown Chalet",
+    Image: {
+      url: "https://picsum.photos/seed/chalet1/800/600",
+      fileName: "sample-image"
+    },
+    price: 15500,
+    location: "Gulmarg",
+    description: "Wooden chalet offering breathtaking snowy mountain views."
+  },
+  {
+    name: "Coral Reef Resort",
+    Image: {
+      url: "https://picsum.photos/seed/resort3/800/600",
+      fileName: "sample-image"
+    },
+    price: 21000,
     location: "Andaman",
-    description: "Premium island resort with crystal-clear beaches."
+    description: "Luxury island resort with scuba diving experiences."
   },
   {
-    name: "Riverside Bamboo Hut",
-    Image: "https://images.unsplash.com/photo-1505692952047-1a78307da8f2",
-    price: 4500,
-    location: "Rishikesh",
-    description: "Simple bamboo hut near the river for a peaceful retreat."
+    name: "Lotus Garden Inn",
+    Image: {
+      url: "https://picsum.photos/seed/hotel2/800/600",
+      fileName: "sample-image"
+    },
+    price: 6300,
+    location: "Mysore",
+    description: "Comfortable stay surrounded by peaceful gardens."
   },
   {
-    name: "Urban Loft Studio",
-    Image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
-    price: 7500,
-    location: "Bangalore",
-    description: "Stylish loft studio for business travelers."
+    name: "Skyline Executive Suites",
+    Image: {
+      url: "https://picsum.photos/seed/suite1/800/600",
+      fileName: "sample-image"
+    },
+    price: 13500,
+    location: "Hyderabad",
+    description: "Modern serviced apartments ideal for business travelers."
   },
   {
-    name: "Cliffside Ocean Retreat",
-    Image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
-    price: 18000,
+    name: "Ocean Breeze Cottage",
+    Image: {
+      url: "https://picsum.photos/seed/cottage2/800/600",
+      fileName: "sample-image"
+    },
+    price: 8800,
     location: "Pondicherry",
-    description: "Luxury retreat with dramatic ocean cliff views."
+    description: "Beachside cottage with private garden and sea breeze."
   },
   {
-    name: "Tea Garden Bungalow",
-    Image: "https://images.unsplash.com/photo-1448630360428-65456885c650",
-    price: 8500,
-    location: "Darjeeling",
-    description: "Stay among beautiful tea gardens with fresh mountain air."
+    name: "Riverstone Camp",
+    Image: {
+      url: "https://picsum.photos/seed/camp1/800/600",
+      fileName: "sample-image"
+    },
+    price: 4200,
+    location: "Rishikesh",
+    description: "Adventure campsite beside the river with bonfire nights."
   },
   {
-    name: "Backwater Houseboat",
-    Image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-    price: 11000,
-    location: "Alleppey",
-    description: "Traditional houseboat experience in Kerala backwaters."
+    name: "Heritage Courtyard Hotel",
+    Image: {
+      url: "https://picsum.photos/seed/hotel3/800/600",
+      fileName: "sample-image"
+    },
+    price: 9600,
+    location: "Jodhpur",
+    description: "Traditional architecture combined with modern comforts."
   },
   {
-    name: "Jungle Safari Lodge",
-    Image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
-    price: 9500,
-    location: "Jim Corbett",
-    description: "Adventure lodge near the national park."
+    name: "Crystal Lake Resort",
+    Image: {
+      url: "https://picsum.photos/seed/resort4/800/600",
+      fileName: "sample-image"
+    },
+    price: 11800,
+    location: "Nainital",
+    description: "Peaceful resort overlooking a beautiful mountain lake."
   },
   {
-    name: "Skyline Penthouse",
-    Image: "https://images.unsplash.com/photo-1484154218962-a197022b5858",
-    price: 22000,
-    location: "Delhi",
-    description: "Luxury penthouse with skyline city views."
+    name: "Wild Safari Lodge",
+    Image: {
+      url: "https://picsum.photos/seed/lodge1/800/600",
+      fileName: "sample-image"
+    },
+    price: 10900,
+    location: "Kaziranga",
+    description: "Stay close to wildlife with guided safari experiences."
   },
   {
-    name: "Temple Town Guest House",
-    Image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
-    price: 3500,
-    location: "Varanasi",
-    description: "Comfortable guest house close to the ghats."
+    name: "Cloud Nine Homestay",
+    Image: {
+      url: "https://picsum.photos/seed/home1/800/600",
+      fileName: "sample-image"
+    },
+    price: 5400,
+    location: "Coorg",
+    description: "Homestay nestled among coffee plantations and hills."
   },
   {
-    name: "Hilltop Sunrise Villa",
-    Image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233",
-    price: 13000,
-    location: "Ooty",
-    description: "Wake up to amazing sunrise views from the hills."
+    name: "Moonlight Desert Camp",
+    Image: {
+      url: "https://picsum.photos/seed/desert1/800/600",
+      fileName: "sample-image"
+    },
+    price: 6700,
+    location: "Jaisalmer",
+    description: "Luxury tents with cultural performances under the stars."
   },
   {
-    name: "Nomad Desert Dome",
-    Image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-    price: 5500,
-    location: "Kutch",
-    description: "Unique dome stay in the white desert."
+    name: "Elite Business Hotel",
+    Image: {
+      url: "https://picsum.photos/seed/business1/800/600",
+      fileName: "sample-image"
+    },
+    price: 9200,
+    location: "Gurugram",
+    description: "Premium hotel designed for corporate and business travelers."
+  },
+  {
+    name: "Forest Whisper Retreat",
+    Image: {
+      url: "https://picsum.photos/seed/forest1/800/600",
+      fileName: "sample-image"
+    },
+    price: 7800,
+    location: "Wayanad",
+    description: "Eco-friendly retreat surrounded by dense forests."
+  },
+  {
+    name: "Pearl Bay Resort",
+    Image: {
+      url: "https://picsum.photos/seed/resort5/800/600",
+      fileName: "sample-image"
+    },
+    price: 17200,
+    location: "Diu",
+    description: "Elegant seaside resort with private beach and luxury amenities."
   }
+
 ];
 
-module.exports = {data : sampleListings};
+module.exports = { data: sampleListings };

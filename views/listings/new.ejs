@@ -1,95 +1,110 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
-<header>
-    <h1><b>Fill the form to Register your Hotel</b></h1>
-</header>
+<div class="wl-form-page">
 
-<form action="/listings" method="POST" class="needs-validation" novalidate>
+    <p class="wl-eyebrow text-center">List your place</p>
+    <h1 class="text-center">Tell us about your stay</h1>
 
-    <div class="addDetails">
-        <ul id="addNewForm">
+    <div class="wl-form-card">
 
-            <li class="addNewForm">
-                <label for="name">Name :</label>
+        <form
+            action="/listings"
+            method="POST"
+            enctype="multipart/form-data"
+            class="needs-validation"
+            novalidate>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
 
                 <input
                     type="text"
                     class="form-control"
+                    id="name"
                     name="listing[name]"
-                    placeholder="Enter the Name of Villa"
+                    placeholder="e.g. Sunset Villa, Goa"
                     required>
 
                 <div class="invalid-feedback">
                     Please enter the hotel name.
                 </div>
-            </li>
+            </div>
 
-            <li class="addNewForm">
-                <label for="Image">Image URL :</label>
+            <div class="mb-3">
+                <label for="Image" class="form-label">Photo</label>
 
                 <input
-                    type="text"
+                    type="file"
                     class="form-control"
+                    id="Image"
                     name="listing[Image]"
-                    placeholder="Enter Image URL">
+                    accept="image/*"
+                    required>
 
                 <div class="valid-feedback">
                     Looks good!
                 </div>
-            </li>
+            </div>
 
-            <li class="addNewForm">
-                <label for="description">Description :</label>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
 
                 <textarea
                     class="form-control"
+                    id="description"
                     name="listing[description]"
-                    placeholder="Enter description of the villa"
+                    placeholder="What makes this place special?"
                     rows="5"
                     required></textarea>
 
                 <div class="invalid-feedback">
                     Please provide a description.
                 </div>
-            </li>
+            </div>
 
-            <li class="addNewForm">
-                <label for="price">Price :</label>
+            <div class="row">
 
-                <input
-                    type="number"
-                    class="form-control"
-                    name="listing[price]"
-                    placeholder="Enter Price"
-                    required>
+                <div class="col-sm-6 mb-3">
+                    <label for="price" class="form-label">Price / night</label>
 
-                <div class="invalid-feedback">
-                    Please enter a valid price.
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="price"
+                        name="listing[price]"
+                        placeholder="e.g. 4500"
+                        min="0"
+                        required>
+
+                    <div class="invalid-feedback">
+                        Please enter a valid price.
+                    </div>
                 </div>
-            </li>
 
-            <li class="addNewForm">
-                <label for="location">Location :</label>
+                <div class="col-sm-6 mb-3">
+                    <label for="location" class="form-label">Location</label>
 
-                <input
-                    type="text"
-                    class="form-control"
-                    name="listing[location]"
-                    placeholder="Enter Location"
-                    required>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="location"
+                        name="listing[location]"
+                        placeholder="e.g. Panjim, Goa"
+                        required>
 
-                <div class="invalid-feedback">
-                    Please enter the location.
+                    <div class="invalid-feedback">
+                        Please enter the location.
+                    </div>
                 </div>
-            </li>
 
-            <li class="addNewForm text-center">
-                <button type="submit" class="btn btn-primary">
-                    Register Hotel
-                </button>
-            </li>
+            </div>
 
-        </ul>
+            <button type="submit" class="btn btn-primary w-100 mt-2">
+                List this place
+            </button>
+
+        </form>
+
     </div>
 
-</form>
+</div>
